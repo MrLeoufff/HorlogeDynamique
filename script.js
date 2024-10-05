@@ -35,7 +35,10 @@ function setTime() {
     minuteEl.style.transform = `translate(-50%, -100%) rotate(${scale(minutes, 0, 60, 0, 360)}deg)`
     secondEl.style.transform = `translate(-50%, -100%) rotate(${scale(seconds, 0, 60, 0, 360)}deg)`
 
-    timeEl.innerHTML = `${hoursForClock}:${minutes < 10 ? `0${minutes}` : minutes} ${ampm}`
+    // timeEl.innerHTML = `${hoursForClock}:${minutes < 10 ? `0${minutes}` : minutes} ${ampm}`
+    const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+    timeEl.innerHTML = hoursForClock + ':' + formattedMinutes + ' ' + ampm;
+
     dateEl.innerHTML = `${days[day]} <span class="circle">${date}</span> ${months[month]} `
 }
 
